@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex bg-gray-100 border border-gray-300 rounded p-5 min-h-[300px] my-5">
+    <div class="flex  border border-gray-300 rounded p-5 min-h-[300px] my-5">
       <div>
         <header>
           <!-- Document Titles -->
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div>
-        <div class="flex flex-wrap bg-white lg:fixed">
+        <div class="flex flex-wrap lg:fixed">
           <TransitionGroup>
             <StickyNote :readonly="true" v-for="sticky in stickiesInView" :key="sticky.sticky_id" :stickyData="sticky"
               :pinNumber="sticky.anchor" :documentId="sticky.document_id" :uuid="sticky.sticky_id" :color="sticky.color"
