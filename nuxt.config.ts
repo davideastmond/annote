@@ -1,9 +1,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 import { fileURLToPath } from "url";
 
-const enableNuxtHub =
-  process.env.NODE_ENV === "production" ||
-  process.env.NUXT_HUB_ENABLED === "true";
+const enableNuxtHub = process.env.NUXT_HUB_ENABLED === "true";
 
 const nuxtHubModule: [string, Record<string, boolean>] = [
   "@nuxthub/core",
@@ -32,6 +30,7 @@ export default defineNuxtConfig({
   },
   css: ["@/public/assets/css/global.css"],
   nitro: {
+    preset: "vercel",
     prerender: {
       autoSubfolderIndex: false,
     },
@@ -39,6 +38,9 @@ export default defineNuxtConfig({
       // Enable Server API documentation within NuxtHub
       openAPI: true,
     },
+  },
+  experimental: {
+    appManifest: false,
   },
   // Development
   devtools: { enabled: true },
@@ -61,6 +63,7 @@ export default defineNuxtConfig({
   },
   postcss: {
     plugins: {
+      "tailwindcss/nesting": false,
       tailwindcss: {},
       autoprefixer: {},
     },
